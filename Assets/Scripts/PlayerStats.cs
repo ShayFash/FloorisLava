@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour,Saveable
+public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 {
     public int maxHealth;
 
@@ -76,5 +76,10 @@ public class PlayerStats : MonoBehaviour,Saveable
         {
             Debug.LogError(e.Message);
         }
+    }
+
+    public void takeDamage(int damage)
+    {
+        CurrentHealth -= damage;
     }
 }

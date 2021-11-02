@@ -82,4 +82,5 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     {
         CurrentHealth -= damage;
     }
+    
 }

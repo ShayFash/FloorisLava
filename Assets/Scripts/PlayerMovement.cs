@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
 {
     // Start is called before the first frame update
     private Rigidbody2D player;
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayers;
     private bool lookingRight;
     private int jumpCount;
+    private bool isRolling;
     public bool LookingRight
     {
         get { return lookingRight; }
@@ -34,7 +36,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isGrounded",isGrounded());
+        if (isRolling)
+        {
+            animator.SetBool("isGrounded",true);
+        }
+        else
+        {
+            animator.SetBool("isGrounded",isGrounded());
+        }
         
         animator.SetBool("isRunning",Mathf.Abs(player.velocity.x)>0.1f);
         
@@ -51,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded()) jumpCount = 0;
         if (jumpCount >= 2) return;
+        if (jumpCount == 1)
+        {
+            isRolling = true;
+            animator.SetTrigger("roll");
+        }
         player.velocity = new Vector2(player.velocity.x, jumpForce);
         jumpCount++;
 
@@ -97,4 +111,17 @@ public class PlayerMovement : MonoBehaviour
 
         return touchingGround; //implicit conversion , if null return false else true
     }
+
+    public void execute(String animationName)
+    {
+        switch (animationName)
+        {
+            case "rolling":
+                Debug.Log("Rolling");
+                isRolling = false;
+                break;
+            
+        }
+    }
+
 }

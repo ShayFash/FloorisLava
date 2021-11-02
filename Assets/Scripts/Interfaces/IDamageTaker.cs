@@ -1,5 +1,5 @@
 
 public interface IDamageTaker
 {
-    public void takeDamage(int damage);
+     void takeDamage(int damage);
 }

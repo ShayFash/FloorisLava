@@ -53,38 +53,61 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\MoveLinearBetweenPoints.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyProjectile.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\PickupItem.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\InteractiveObjectData.cs" />
      <Compile Include="Assets\Scripts\Interfaces\Interactable.cs" />
      <Compile Include="Assets\Scripts\GameButton.cs" />
+     <Compile Include="Assets\Scripts\Attack Colliders\TriangleAttackCollider.cs" />
      <Compile Include="Assets\Scripts\SawTrap.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\AllData.cs" />
      <Compile Include="Assets\Scripts\MoveUp.cs" />
+     <Compile Include="Assets\Scripts\DestroyableObject.cs" />
+     <Compile Include="Assets\Scripts\Enemies\ColliderType.cs" />
      <Compile Include="Assets\Scripts\HealthPotion.cs" />
      <Compile Include="Assets\Scripts\CoinBar.cs" />
      <Compile Include="Assets\Scripts\AnimationBehaviours\DestroyOnExit.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IProceduralSpawnable.cs" />
      <Compile Include="Assets\Scripts\SaveManager.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Skeletons\SkeletonMage.cs" />
+     <Compile Include="Assets\Scripts\Base\Attack.cs" />
+     <Compile Include="Assets\Scripts\Base\Helper.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Projectile.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageTaker.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IEnemy.cs" />
+     <Compile Include="Assets\SimplePlatform.cs" />
      <Compile Include="Assets\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\SaveableData.cs" />
      <Compile Include="Assets\Scripts\Singleton Classes\SaveManagerAccess.cs" />
+     <Compile Include="Assets\Scripts\Enums\Direction.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Skeletons\SkeletonArrow.cs" />
      <Compile Include="Assets\Scripts\AnimationBehaviours\CallFunctionOnExit.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyRange.cs" />
      <Compile Include="Assets\DestroyEverything.cs" />
+     <Compile Include="Assets\Scripts\Enums\DevMode.cs" />
+     <Compile Include="Assets\Scripts\Weapons\ShootingPower.cs" />
      <Compile Include="Assets\Scripts\Interactor.cs" />
-     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Attack Colliders\AttackCollider.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyMelee.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\PlayerData.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IAttacker.cs" />
      <Compile Include="Assets\Scripts\Singleton Classes\PlayerAccess.cs" />
+     <Compile Include="Assets\Scripts\Abstract Classes\SpawnableObject.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\PositionData.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IOnAnimatonFinished.cs" />
      <Compile Include="Assets\Scripts\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerActionType.cs" />
      <Compile Include="Assets\Scripts\Chest.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\Saveable.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Skeletons\SkeletonSpear.cs" />
      <Compile Include="Assets\ProceduralManager.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IProceduralSpawnable.cs" />
-     <Compile Include="Assets\SimplePlatform.cs" />
-     <Compile Include="Assets\Scripts\Abstract Classes\SpawnableObject.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\Saveable.cs" />
+     <Compile Include="Assets\Scripts\Attack Colliders\BoxAttackCollider.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\EnemyPlatform.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -329,7 +352,7 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.9f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -683,100 +706,100 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.9f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InternalAPIEngineBridge.001">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.PixelPerfect">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
  <Reference Include="PsdPlugin">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.IK.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Psdimporter.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Path.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InternalAPIEditorBridge.001">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.IK.Runtime">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Cinemachine">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="com.unity.cinemachine.editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Triangle.Runtime">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Runtime">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.PixelPerfect.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Common.Runtime">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Common.Editor">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Runtime">
- <HintPath>/Volumes/Extreme SSD/CMPT 306 backups/floorislava/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+ <HintPath>/Volumes/Extreme SSD/CMPT 306/floorislava/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

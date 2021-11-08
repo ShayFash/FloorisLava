@@ -7,6 +7,8 @@ public class ProceduralManager : MonoBehaviour
 
     public List<SpawnableObject> spawnedObjects;
 
+    public List<SpawnableObject> enemyPlatforms;
+
     public Transform spawnThreshold;
 
     public SimplePlatform simplePlatform;

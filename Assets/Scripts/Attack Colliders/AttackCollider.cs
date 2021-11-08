@@ -43,7 +43,7 @@ public abstract class AttackCollider:MonoBehaviour
         {
             playerCollision = true;
             enemy.onPlayerEncountered();
-
+            
         }
 
         

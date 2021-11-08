@@ -162,10 +162,6 @@ public class Projectile : ShootingPower
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg));
 
-
-      
-
-
     }
 
   

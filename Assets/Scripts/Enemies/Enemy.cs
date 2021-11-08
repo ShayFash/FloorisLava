@@ -67,8 +67,6 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
         {
             isAttacking = true;
         
-
-
             StartCoroutine(attackHelper( attackType));
         }
         else

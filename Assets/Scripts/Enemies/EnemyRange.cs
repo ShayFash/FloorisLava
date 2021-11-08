@@ -23,9 +23,8 @@ public abstract class EnemyRange : Enemy, IOnAnimatonFinished
 
     public void rangeAI()
     {
-        Collider2D playerCollision = Physics2D.OverlapBox(transform.position, new Vector2(2 * viewRange, enemyHeight), 0, playerLayer);
 
-
+        Debug.Log(hasCollisionHappened());
 
         if (hasCollisionHappened())
         {

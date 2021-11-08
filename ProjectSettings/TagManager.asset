@@ -15,9 +15,9 @@ TagManager:
   - Ground
   - Objects
   - Boundary
-  - 
-  - 
-  - 
+  - Enemy
+  - Shooting Power
+  - Friendly Shooting Power
   - 
   - 
   - 

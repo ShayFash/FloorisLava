@@ -13,6 +13,8 @@ public class ProceduralManager : MonoBehaviour
 
     public List<EnemyPlatform> enemyPlatforms;
 
+    public List<SimplePlatform> itemPlatforms;
+
     public Transform spawnThreshold;
 
     public SimplePlatform simplePlatform;
@@ -28,6 +30,7 @@ public class ProceduralManager : MonoBehaviour
     {
         rightBoundX = RightBound.position.x;
         leftBoundX = LeftBound.position.x;
+        
     }
 
     // Update is called once per frame
@@ -43,11 +46,18 @@ public class ProceduralManager : MonoBehaviour
 
             
             SpawnableObject objectToSpawn;
-            objectToSpawn = (spawnedObjects.Count % 3 != 0)
-                ? (SpawnableObject)simplePlatform
-                : (enemyPlatforms[(int) Random.Range(0, 3)]);
-            
-          
+            if (spawnedObjects.Count % (int) Random.Range(2, 5) == 0)
+            {
+                objectToSpawn = (enemyPlatforms[(int) Random.Range(0, enemyPlatforms.Count)]);
+            }else if (spawnedObjects.Count % ((int) Random.Range(2, 5)) == 0)
+            {
+                objectToSpawn = itemPlatforms[(int) Random.Range(0, enemyPlatforms.Count)];
+            }
+            else
+            {
+                objectToSpawn = (SpawnableObject) simplePlatform;
+            }
+       
             
             SpawnableObject newObject=Instantiate(objectToSpawn, getNewSpawnPosition(lastSpawnedObjectPosition,randomDirection), Quaternion.identity);
             // Debug.Log("X: "+newObjectTransform.x+" EndX: "+newObject.EndX+" BoundX: "+rightBoundX);

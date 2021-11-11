@@ -117,7 +117,6 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
         switch (animationName)
         {
             case "rolling":
-                Debug.Log("Rolling");
                 isRolling = false;
                 break;
             

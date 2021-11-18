@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1006589584}
   - component: {fileID: 1006589586}
   - component: {fileID: 1006589585}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2603883595602000701}
   m_Layer: 9
-  m_Name: ArrowPoint
+  m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2603883595602000700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.16, y: 0.17, z: 0}
+  m_LocalPosition: {x: 1.68, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8514244221380522896}

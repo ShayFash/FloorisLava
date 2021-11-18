@@ -138,7 +138,7 @@ MonoBehaviour:
   damage: 40
   destroyableLayers:
     serializedVersion: 2
-    m_Bits: 1224
+    m_Bits: 1736
   impactEffect: {fileID: 3321628802149352054, guid: c82cbdea949874bf7be90901c6beba0c, type: 3}
   speed: 10
 --- !u!95 &8863331821305244433

@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
             if (value < currentHealth)
             {
                 PlayerAccess.getInstance().GetComponent<Animator>().SetTrigger("hurt");
-            }
+            }else
             currentHealth = value;
             healthBar.setHealth(currentHealth);
         }

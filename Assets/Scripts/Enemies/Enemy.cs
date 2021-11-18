@@ -50,6 +50,7 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
         animator.SetTrigger("hurt");
 
         health -= damage;
+        Debug.Log(health+" "+damage);
         if (health <= 0)
         {
             StartCoroutine(Die());

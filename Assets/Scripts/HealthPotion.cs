@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class HealthPotion : PickupItem
 {
-    [SerializeField] private int potionPower;
+    [SerializeField] private static int potionPower;
     // Start is called before the first frame update
+
+
  
 
     public override void interactSpecific()

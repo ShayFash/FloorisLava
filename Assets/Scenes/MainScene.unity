@@ -1538,6 +1538,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 638446032}
+    - target: {fileID: 983143507005967363, guid: e7f12fd1df7924427b5cd9eba5e3ff9a, type: 3}
+      propertyPath: powerUpCanvas
+      value: 
+      objectReference: {fileID: 1071184847}
     - target: {fileID: 983143507005967364, guid: e7f12fd1df7924427b5cd9eba5e3ff9a, type: 3}
       propertyPath: m_Color.b
       value: 1

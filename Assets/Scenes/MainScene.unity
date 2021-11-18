@@ -189,17 +189,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &159323613 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 621089445642377104, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
-  m_PrefabInstance: {fileID: 5727752805924422647}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &405760491
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,25 +383,17 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 1571771793}
   m_ConfineScreenEdges: 1
   m_Damping: 0
---- !u!1 &1061604792 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6820004511906344899, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
+--- !u!114 &1061604794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1061604794, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
   m_PrefabInstance: {fileID: 5727752805924422647}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1061604794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061604792}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cf7fc5c06fb44617b3d161615f6d233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numHealthPotionsText: {fileID: 159323613}
-  numRageModesText: {fileID: 2078798199}
 --- !u!1 &1121510720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1118186681049934179, guid: ee0013abe5d9c4af1941ea328612db37, type: 3}
@@ -660,17 +641,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 983143507005967367, guid: e7f12fd1df7924427b5cd9eba5e3ff9a, type: 3}
   m_PrefabInstance: {fileID: 983143508724024997}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2078798199 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5016347749684678940, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
-  m_PrefabInstance: {fileID: 5727752805924422647}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2130828228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,10 +1232,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5727752804324050731, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 413.9
-      objectReference: {fileID: 0}
     - target: {fileID: 5727752804474864552, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1357,22 +1323,6 @@ PrefabInstance:
     - target: {fileID: 5727752804689939384, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5727752805305255146, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -163
-      objectReference: {fileID: 0}
-    - target: {fileID: 5727752805305255146, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 188
-      objectReference: {fileID: 0}
-    - target: {fileID: 5727752805673732419, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -297
-      objectReference: {fileID: 0}
-    - target: {fileID: 5727752805673732419, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 188
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17b9f0027ac4b4197971645045de02f2, type: 3}

@@ -106,6 +106,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1006589585, guid: fc7eabd107b764c668e43357e96671c0, type: 3}
+      propertyPath: viewHeight
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1196989245, guid: fc7eabd107b764c668e43357e96671c0, type: 3}
       propertyPath: enemyHeight
       value: 1.3

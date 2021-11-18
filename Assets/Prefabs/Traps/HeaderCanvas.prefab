@@ -456,7 +456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 413, y: -231}
+  m_AnchoredPosition: {x: 413.9, y: -231}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5727752804689939384
@@ -870,7 +870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -78.6, y: 185}
+  m_AnchoredPosition: {x: -163, y: 188}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5727752805305255127
@@ -1003,7 +1003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -241.6, y: 185}
+  m_AnchoredPosition: {x: -297, y: 188}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5727752805673732416
@@ -1109,6 +1109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8817316628423315624}
+  - component: {fileID: 1061604794}
   m_Layer: 5
   m_Name: PowerUps
   m_TagString: Untagged
@@ -1137,6 +1138,20 @@ RectTransform:
   m_AnchoredPosition: {x: -55.8, y: 81.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1061604794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6820004511906344899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf7fc5c06fb44617b3d161615f6d233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numHealthPotionsText: {fileID: 621089445642377104}
+  numRageModesText: {fileID: 5016347749684678940}
 --- !u!1001 &4418968018955890888
 PrefabInstance:
   m_ObjectHideFlags: 0

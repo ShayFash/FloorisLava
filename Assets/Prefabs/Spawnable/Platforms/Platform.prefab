@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 287540083583372999}
   - component: {fileID: 7555446981891336851}
   - component: {fileID: 261589635283997687}
+  - component: {fileID: 1439935666}
+  - component: {fileID: 1439935670}
   m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
@@ -109,3 +111,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &1439935666
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029806168761724058}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 657ca03c2edeb443eabbfb80d68e0fc4, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.48, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.052
+--- !u!58 &1439935670
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029806168761724058}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 657ca03c2edeb443eabbfb80d68e0fc4, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.48, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.052

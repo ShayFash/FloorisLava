@@ -107,9 +107,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnedObjects:
   - {fileID: 0}
+  enemyPlatforms:
+  - {fileID: 4765957764341361184, guid: 479b8762ac76e4e649687d560542c5d0, type: 3}
+  - {fileID: 8542614109677900243, guid: a188688fd1672457284433281bc8f67f, type: 3}
+  - {fileID: 6917013364411430980, guid: f48f202422444432fb4ad7495eb449ca, type: 3}
+  itemPlatforms:
+  - {fileID: 1639670247150459413, guid: c28d8def468734630884a13378b1f0a4, type: 3}
+  - {fileID: 5047040007147879369, guid: f12b0fb943f99499b809cd224eb38766, type: 3}
   spawnThreshold: {fileID: 0}
   simplePlatform: {fileID: 1191458760, guid: 8c9892c5b433043879ef8e0fc59ed39f, type: 3}
   playerMaxY: 5
-  playerMaxX: 15
+  minReachRadius: 8
+  maxReachRadius: 9
+  playerMaxX: 13
   RightBound: {fileID: 786335302679167879}
   LeftBound: {fileID: 786335303392777589}

@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -21,6 +23,9 @@ public class ProceduralManager : MonoBehaviour
 
     public float playerMaxY;
 
+    public float minReachRadius;
+    public float maxReachRadius;
+
     public float playerMaxX;
     public Transform RightBound, LeftBound;
     private int counter;
@@ -30,6 +35,7 @@ public class ProceduralManager : MonoBehaviour
     {
         rightBoundX = RightBound.position.x;
         leftBoundX = LeftBound.position.x;
+        
         
     }
 
@@ -75,9 +81,11 @@ public class ProceduralManager : MonoBehaviour
 
     private Vector3 getNewSpawnPosition(Vector2 lastSpawnedObjectPosition,int direction)
     {
-        float newObjectY = lastSpawnedObjectPosition.y + Random.Range(2, playerMaxY);
-        float newObjectX = lastSpawnedObjectPosition.x + direction* Random.Range(5, playerMaxX);
-            
+        // float newObjectY = lastSpawnedObjectPosition.y + Random.Range(2, playerMaxY);
+        float currentRadius = Random.Range(minReachRadius, maxReachRadius);
+        float newObjectX = lastSpawnedObjectPosition.x+ direction*Random.Range(4, currentRadius);
+        float newObjectY= (float)(Math.Sqrt(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2)) + lastSpawnedObjectPosition.y);
+        
         return new Vector3(newObjectX,newObjectY,0);
     }
 }

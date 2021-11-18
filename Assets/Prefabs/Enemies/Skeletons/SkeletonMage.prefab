@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewCentre: {x: 0, y: 0}
   viewLength: 25
-  viewHeight: 3
+  viewHeight: 2
   bothSide: 0
 --- !u!1 &2603883595602000700
 GameObject:

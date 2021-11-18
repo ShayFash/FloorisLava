@@ -11,9 +11,18 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
     [SerializeField] private float movementSpeed,jumpForce;
     [SerializeField] private Transform feet;
     [SerializeField] private LayerMask groundLayers;
+
+    private PlayerStats playerStats;
+
+    private float movementMultiplier;
+    private float jumpMultiplier;
+
     private bool lookingRight;
     private int jumpCount;
     private bool isRolling;
+    private bool shiftKeyPressed;
+
+
     public bool LookingRight
     {
         get { return lookingRight; }
@@ -28,14 +37,32 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
     {
         player = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerStats=PlayerAccess.getStats();
         lookingRight = true;
         jumpCount = 0;
 
     }
 
+    private void checkRageMode(){
+        if(Input.GetKeyDown(KeyCode.LeftShift))shiftKeyPressed=true;
+        else if(Input.GetKeyUp(KeyCode.LeftShift))shiftKeyPressed=false;
+        
+        if(shiftKeyPressed&&playerStats.IsRaging){
+            movementMultiplier=1.5f;
+            jumpMultiplier=1.3f;
+        }else{
+            movementMultiplier=1f;
+            jumpMultiplier=1f;
+            
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+        checkRageMode();
+      
         if (isRolling)
         {
             animator.SetBool("isGrounded",true);
@@ -65,7 +92,7 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
             isRolling = true;
             animator.SetTrigger("roll");
         }
-        player.velocity = new Vector2(player.velocity.x, jumpForce);
+        player.velocity = new Vector2(player.velocity.x, jumpForce*jumpMultiplier);
         jumpCount++;
 
     }
@@ -93,7 +120,7 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
             }
             
             //for moving player
-            player.velocity = new Vector2(direction * movementSpeed, player.velocity.y);
+            player.velocity = new Vector2(direction * movementSpeed*movementMultiplier, player.velocity.y);
             
             //for animating player to run
         }
@@ -112,6 +139,13 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
         return touchingGround; //implicit conversion , if null return false else true
     }
 
+    public void setRageMode(){
+        movementSpeed*=2;
+        jumpForce*=2;
+    }
+
+
+
     public void execute(String animationName)
     {
         switch (animationName)
@@ -122,5 +156,7 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
             
         }
     }
+
+
 
 }

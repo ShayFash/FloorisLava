@@ -96,6 +96,9 @@
      <Compile Include="Assets\Scripts\Player\Shoot.cs" />
      <Compile Include="Assets\Scripts\Player\MeleeAttack.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
+     <Compile Include="Assets\RewardSystem.cs" />
+     <Compile Include="Assets\Scripts\Singleton Classes\RewardSystemAccess.cs" />
+     <Compile Include="Assets\PowerUpCanvas.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

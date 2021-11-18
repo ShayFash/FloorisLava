@@ -89,6 +89,7 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
     IEnumerator Die()
     {
         dead = true;
+        RewardSystemAccess.getInstance().increaseKill();
 
         animator.SetBool("dead", true);
         yield return new WaitForSeconds(0.8f);

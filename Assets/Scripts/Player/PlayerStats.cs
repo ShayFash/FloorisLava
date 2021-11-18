@@ -11,6 +11,32 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     private int currentMoney;
     public HealthBar healthBar;
     public CoinBar coinBar;
+    private int multiplier;
+    private bool isRaging;
+    private Animator animator;
+
+    private int healthPotions;
+    private int rageModes;
+
+    public PowerUpCanvas powerUpCanvas;
+
+    
+
+    public bool IsRaging{
+        get{return isRaging;}
+        set{
+            multiplier=value?2:1;
+            animator.SetBool("isRaging",value);
+
+            
+            isRaging=value;
+            
+        }
+    }
+
+    public int Multipler{
+        get{return multiplier;}
+    }
     public int CurrentHealth
     {
         get { return currentHealth; }
@@ -34,12 +60,19 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
             coinBar.setCoins(currentMoney);
         }
     }
+
+   
     // Start is called before the first frame update
     void Start()
     {
         healthBar.init(maxHealth);
         CurrentMoney = 0;
         CurrentHealth = maxHealth;
+        multiplier=1;
+        animator=GetComponent<Animator>();
+
+        healthPotions=0;
+        rageModes=0;
 
     }
 
@@ -50,7 +83,9 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.H)){
+            useHealthPotion();
+        }
     }
 
     public SaveableData saveObject()
@@ -81,6 +116,25 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     public void takeDamage(int damage)
     {
         CurrentHealth -= damage;
+    }
+
+    public void addHealthPotions(){
+        healthPotions++;
+        powerUpCanvas.NumHealthPotions=healthPotions;
+
+    }
+
+    public void useHealthPotion(){
+        if(healthPotions>0){
+            healthPotions--;
+            
+        }
+    }
+
+    public void addRageMode(){
+        rageModes++;
+        powerUpCanvas.NumRageModes=rageModes;
+
     }
     
 }

@@ -118,7 +118,8 @@ MonoBehaviour:
   simplePlatform: {fileID: 1191458760, guid: 8c9892c5b433043879ef8e0fc59ed39f, type: 3}
   playerMaxY: 5
   minReachRadius: 8
-  maxReachRadius: 9
+  maxReachRadius: 10
   playerMaxX: 13
   RightBound: {fileID: 786335302679167879}
   LeftBound: {fileID: 786335303392777589}
+  minHorizontalDistanceBetweenPlatforms: 4

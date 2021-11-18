@@ -6,7 +6,7 @@ public static class RewwardSystemAccess
     public static RewardSystem getInstance()
     {
         if (_rewardSystem == null)
-            _rewardSystem = GameObject.FindGameObjectWithTag("RewardSytem").GetComponent<RewardSystem>();
+            _rewardSystem = GameObject.FindGameObjectWithTag("RewardSystem").GetComponent<RewardSystem>();
 
         return _rewardSystem;
     }

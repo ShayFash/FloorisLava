@@ -90,6 +90,8 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
     {
         dead = true;
 
+        RewwardSystemAccess.getInstance().increaseKill();
+        
         animator.SetBool("dead", true);
         yield return new WaitForSeconds(0.8f);
 

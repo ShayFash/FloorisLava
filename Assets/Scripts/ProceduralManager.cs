@@ -31,7 +31,7 @@ public class ProceduralManager : MonoBehaviour
     private int counter;
     private float rightBoundX, leftBoundX;
 
-    public float minHorizontalDistanceBetweenPlatforms = 4f;
+    public float minHorizontalDistanceBetweenPlatforms = 6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -134,8 +134,11 @@ public class ProceduralManager : MonoBehaviour
              newObjectX = lastSpawnedObjectPosition.x + direction * Random.Range(minHorizontalDistanceBetweenPlatforms, currentRadius);
         }
 
-        float newObjectY= (float)(Math.Sqrt(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2)) + lastSpawnedObjectPosition.y);
-        
+        float newObjectY= (float)(Math.Abs(Math.Sqrt(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2))) + lastSpawnedObjectPosition.y);
+        if (newObjectY < lastSpawnedObjectPosition.y)
+        {
+            Debug.Log("Whats up "+gameObject);
+        }
         return new Vector3(newObjectX,newObjectY,0);
     }
 }

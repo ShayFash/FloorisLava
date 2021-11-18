@@ -12,11 +12,12 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     public HealthBar healthBar;
     public CoinBar coinBar;
     private int multiplier;
-    private bool isRaging;
+    private bool isRaging,isRaginCont;
     private Animator animator;
 
     private int healthPotions;
     private int rageModes;
+    public float RagingTime=5f;
 
     public PowerUpCanvas powerUpCanvas;
 
@@ -25,13 +26,24 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     public bool IsRaging{
         get{return isRaging;}
         set{
-            multiplier=value?2:1;
+            if (value)
+            {
+                StartCoroutine(startRaging());
+            }
+            
             animator.SetBool("isRaging",value);
 
             
             isRaging=value;
             
         }
+    }
+
+    private IEnumerator startRaging()
+    {
+
+        yield return new WaitForSeconds(RagingTime);
+        IsRaging = false;
     }
 
     public int Multipler{
@@ -73,6 +85,8 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
         healthPotions=0;
         rageModes=0;
+        isRaging = false;
+        isRaginCont = false;
 
     }
 
@@ -85,6 +99,12 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     {
         if(Input.GetKeyDown(KeyCode.H)){
             useHealthPotion();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            useRageMode();
+            
         }
     }
 
@@ -128,6 +148,13 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         if(healthPotions>0){
             healthPotions--;
             
+        }
+    }
+    
+    public void useRageMode(){
+        if(rageModes>0&&!IsRaging){
+            rageModes--;
+            IsRaging = true;
         }
     }
 

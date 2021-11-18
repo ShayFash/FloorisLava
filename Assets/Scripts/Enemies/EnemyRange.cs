@@ -24,7 +24,6 @@ public abstract class EnemyRange : Enemy, IOnAnimatonFinished
     public void rangeAI()
     {
 
-        Debug.Log(hasCollisionHappened());
 
         if (hasCollisionHappened())
         {

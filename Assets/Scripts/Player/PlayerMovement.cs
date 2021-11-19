@@ -44,10 +44,8 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
     }
 
     private void checkRageMode(){
-        if(Input.GetKeyDown(KeyCode.LeftShift))shiftKeyPressed=true;
-        else if(Input.GetKeyUp(KeyCode.LeftShift))shiftKeyPressed=false;
-        
-        if(shiftKeyPressed&&playerStats.IsRaging){
+  
+        if(playerStats.IsRaging){
             movementMultiplier=1.5f;
             jumpMultiplier=1.3f;
         }else{

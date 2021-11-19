@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     private int healthPotions;
     private int rageModes;
-    public float RagingTime=5f;
+    public float RagingTime=7f;
 
     public PowerUpCanvas powerUpCanvas;
 
@@ -82,8 +82,8 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
             if (value < currentHealth)
             {
                 PlayerAccess.getInstance().GetComponent<Animator>().SetTrigger("hurt");
-            }else
-            currentHealth = value;
+            }
+            currentHealth = value>0?value:0;
             healthBar.setHealth(currentHealth);
         }
     }
@@ -170,7 +170,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     public void useHealthPotion(){
         if(HealthPotions>0){
-            healthPotions--;
+            HealthPotions--;
             CurrentHealth += HealthPotion.PotionPower;
         }
     }

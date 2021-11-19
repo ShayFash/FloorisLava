@@ -89,6 +89,7 @@
      <Compile Include="Assets\Scripts\DestroyEverything.cs" />
      <Compile Include="Assets\Scripts\Enums\DevMode.cs" />
      <Compile Include="Assets\Scripts\Player\MeleeAttack.cs" />
+     <Compile Include="Assets\Scripts\Mainmenu.cs" />
      <Compile Include="Assets\Scripts\Weapons\ShootingPower.cs" />
      <Compile Include="Assets\Scripts\Player\Interactor.cs" />
      <Compile Include="Assets\Scripts\Player\IPlayerAttack.cs" />
@@ -112,6 +113,7 @@
      <Compile Include="Assets\Scripts\Enemies\Skeletons\SkeletonSpear.cs" />
      <Compile Include="Assets\Scripts\ProceduralManager.cs" />
      <Compile Include="Assets\Scripts\Interfaces\Saveable.cs" />
+     <Compile Include="Assets\Scripts\Pausemenu.cs" />
      <Compile Include="Assets\Scripts\Attack Colliders\BoxAttackCollider.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Lava&amp;Water\Scripts\Lava_Ocean.cs" />

@@ -17,10 +17,35 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     private int healthPotions;
     private int rageModes;
-    public float RagingTime=5f;
+    public float RagingTime=7f;
 
     public PowerUpCanvas powerUpCanvas;
 
+    public int HealthPotions
+    {
+        get { return healthPotions; }
+        set
+        {
+            if (value >= 0)
+            {
+                healthPotions = value;
+                powerUpCanvas.NumHealthPotions = value;
+            }
+        }
+    }
+    
+    public int RageModes
+    {
+        get { return rageModes; }
+        set
+        {
+            if (rageModes >= 0)
+            {
+                rageModes = value;
+                powerUpCanvas.NumRageModes = value;
+            }
+        }
+    }
     
 
     public bool IsRaging{
@@ -57,8 +82,8 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
             if (value < currentHealth)
             {
                 PlayerAccess.getInstance().GetComponent<Animator>().SetTrigger("hurt");
-            }else
-            currentHealth = value;
+            }
+            currentHealth = value>0?value:0;
             healthBar.setHealth(currentHealth);
         }
     }
@@ -138,30 +163,29 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         CurrentHealth -= damage;
     }
 
-    public void addHealthPotions(){
-        healthPotions++;
-        powerUpCanvas.NumHealthPotions=healthPotions;
-
+    public void addHealthPotion()
+    {
+        HealthPotions++;
     }
 
     public void useHealthPotion(){
-        if(healthPotions>0){
-            healthPotions--;
-            
+        if(HealthPotions>0){
+            HealthPotions--;
+            CurrentHealth += HealthPotion.PotionPower;
         }
     }
     
     public void useRageMode(){
-        if(rageModes>0&&!IsRaging){
-            rageModes--;
+        if(RageModes>0&&!IsRaging)
+        {
+            RageModes--;
             IsRaging = true;
         }
     }
 
-    public void addRageMode(){
-        rageModes++;
-        powerUpCanvas.NumRageModes=rageModes;
-
+    public void addRageMode()
+    {
+        RageModes++;
     }
     
 }

@@ -19,6 +19,8 @@ public class MeleeAttack : MonoBehaviour , IPlayerAttack
     private float attackRange;
     private Collider2D[] collisions;
 
+    private int multiplier;
+
     public GameObject stabImpact, heavyImpact;
 
 
@@ -31,6 +33,7 @@ public class MeleeAttack : MonoBehaviour , IPlayerAttack
     // Update is called once per frame
     void Update()
     {
+        multiplier = PlayerAccess.getStats().IsRaging ? 3 : 1;
         if (!Helper.MOBILE_TESTING&&PlayerAttack.canAttack())
         {
             if ( Input.GetButtonDown("Fire1") )
@@ -81,7 +84,7 @@ public class MeleeAttack : MonoBehaviour , IPlayerAttack
             IDamageTaker damageTaker = obj.GetComponent<IDamageTaker>();
             if (damageTaker != null)
             {
-                damageTaker.takeDamage((int)(attackPower * at.Power));
+                damageTaker.takeDamage((int)(attackPower * at.Power*multiplier));
                 Instantiate(stabImpact, stabPoint.position, Quaternion.identity);
 
             }
@@ -95,10 +98,7 @@ public class MeleeAttack : MonoBehaviour , IPlayerAttack
 
     }
 
-
-
-   
-
+    
     public void attack(PlayerActionType playerAttackType)
     {
 

@@ -221,6 +221,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 685096640, guid: e7f12fd1df7924427b5cd9eba5e3ff9a, type: 3}
   m_PrefabInstance: {fileID: 983143508724024997}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &808747003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 808747003, guid: 3e817e22047154741ab9e9d7642e6bc4, type: 3}
+  m_PrefabInstance: {fileID: 2092439552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaea633e50ff64e0a9b400b765d46b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &828341201 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8127588443222220921, guid: 3e817e22047154741ab9e9d7642e6bc4, type: 3}
@@ -658,10 +669,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 703479654209138836, guid: 3e817e22047154741ab9e9d7642e6bc4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8127588444500632972, guid: 3e817e22047154741ab9e9d7642e6bc4, type: 3}
       propertyPath: m_Name
       value: CanvasGamePlay
@@ -1329,6 +1336,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2062060191}
+    - target: {fileID: 7333215886529477853, guid: e637399f93a44405a8cffb260ebf2a05, type: 3}
+      propertyPath: scoreBar
+      value: 
+      objectReference: {fileID: 808747003}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e637399f93a44405a8cffb260ebf2a05, type: 3}
 --- !u!1001 &8883259745892561972
@@ -1400,7 +1411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8883259744886040540, guid: c7d4bcade644448b59ed621a38fb6ba2, type: 3}
       propertyPath: speed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7d4bcade644448b59ed621a38fb6ba2, type: 3}

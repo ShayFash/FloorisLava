@@ -25,10 +25,7 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
     protected Animator animator;
     protected Rigidbody2D enemy;
     protected Rigidbody2D player;
-
-
     private bool dead = false;
-
     protected bool isAttacking = false;
 
     public void Start()
@@ -67,7 +64,6 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
         if (!isAttacking && !isDead())
         {
             isAttacking = true;
-        
             StartCoroutine(attackHelper( attackType));
         }
         else
@@ -98,9 +94,7 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
         gameObject.SetActive(false);
         yield return new WaitForSeconds(1.4f);
         Destroy(gameObject);
-
-
-
+        
 
     }
 

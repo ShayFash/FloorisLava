@@ -53,7 +53,7 @@ public class RewardSystem : MonoBehaviour
 
         if (totalPlayerKills % 1 == 0)
         {
-            PlayerAccess.getStats().addHealthPotions();
+            PlayerAccess.getStats().addHealthPotion();
 
         }
     }

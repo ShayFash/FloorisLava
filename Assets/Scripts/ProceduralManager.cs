@@ -44,10 +44,10 @@ public class ProceduralManager : MonoBehaviour
     private SpawnableObject getRandomSpawnableObject()
     {
         SpawnableObject objectToSpawn;
-        if (spawnedObjects.Count % (int) Random.Range(2, 8) == 0)
+        if (spawnedObjects.Count % (int) Random.Range(1, 10) == 0)
         {
             objectToSpawn = (enemyPlatforms[(int) Random.Range(0, enemyPlatforms.Count)]);
-        }else if (spawnedObjects.Count % ((int) Random.Range(2, 5)) == 0)
+        }else if (spawnedObjects.Count % ((int) Random.Range(1, 6)) == 0)
         {
             objectToSpawn = itemPlatforms[(int) Random.Range(0, itemPlatforms.Count)];
         }

@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     private int healthPotions;
     private int rageModes;
     public float RagingTime=7f;
-
+    public int defense;
     public PowerUpCanvas powerUpCanvas;
 
     public int HealthPotions
@@ -160,7 +160,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     public void takeDamage(int damage)
     {
-        CurrentHealth -= damage;
+        CurrentHealth -= damage/defense;
     }
 
     public void addHealthPotion()

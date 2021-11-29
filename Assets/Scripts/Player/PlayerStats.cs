@@ -21,6 +21,12 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     public int defense;
     public PowerUpCanvas powerUpCanvas;
 
+    public ScoreBar scoreBar;
+
+    private int currentScore;
+
+
+
     public int HealthPotions
     {
         get { return healthPotions; }
@@ -88,6 +94,15 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         }
     }
 
+    public int CurrentScore{
+        get{return currentScore;}
+        set{
+            currentScore=value;
+            scoreBar.CurrentScore = currentScore;
+
+        }
+    }
+
     public int CurrentMoney
     {
         get { return currentMoney; }
@@ -148,6 +163,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
             {
                 CurrentHealth = playerData.health;
                 CurrentMoney = playerData.money;
+                CurrentScore=playerData.score;
                 transform.position = playerData.posData.getVector3();
                 PlayerAccess.getMovement().LookingRight = playerData.isLookingRight;
             }

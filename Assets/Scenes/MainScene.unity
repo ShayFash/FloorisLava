@@ -328,11 +328,6 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 1571771793}
   m_ConfineScreenEdges: 1
   m_Damping: 0
---- !u!1 &1121510720 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1118186681049934179, guid: ee0013abe5d9c4af1941ea328612db37, type: 3}
-  m_PrefabInstance: {fileID: 1118186682153503779}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1136410405
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +957,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 983143507005967363, guid: e7f12fd1df7924427b5cd9eba5e3ff9a, type: 3}
+      propertyPath: scoreBar
+      value: 
+      objectReference: {fileID: 808747003}
+    - target: {fileID: 983143507005967363, guid: e7f12fd1df7924427b5cd9eba5e3ff9a, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1791936007}
@@ -1221,6 +1220,10 @@ PrefabInstance:
       value: SaveManager
       objectReference: {fileID: 0}
     - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
+      propertyPath: objectsToSave.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
       propertyPath: objectsToSave.Array.data[0]
       value: 
       objectReference: {fileID: 2062060191}
@@ -1235,7 +1238,7 @@ PrefabInstance:
     - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
       propertyPath: objectsToSave.Array.data[3]
       value: 
-      objectReference: {fileID: 1121510720}
+      objectReference: {fileID: 0}
     - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
       propertyPath: objectsToSave.Array.data[4]
       value: 

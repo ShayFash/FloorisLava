@@ -36,6 +36,16 @@ using UnityEngine;
             saveableObjects.Add(objToSave);
         }
 
+        public void Update(){
+            Debug.Log("fsafdsa");
+            if(Input.GetKeyDown(KeyCode.S)){
+                save();
+            }
+             if(Input.GetKeyDown(KeyCode.L)){
+                load();
+            }
+        }
+
         /**&
          * It was not working if I directly called save method from the button
          * Couldn't figure out why but probably because the onclick method saves an instance of the function before

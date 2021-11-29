@@ -123,10 +123,12 @@ public class ProceduralManager : MonoBehaviour
         if (numToSpawn == 2 && counter == 1)
         {
             SpawnableObject lastSpawnedObject = spawnedObjects[spawnedObjects.Count - 1];
-             newObjectX = lastSpawnedObject.transform.position.x+ direction*maxReachRadius;
+             newObjectX = lastSpawnedObject.transform.position.x+ direction*currentRadius;
              if (newObjectX - lastSpawnedObjectPosition.x < minHorizontalDistanceBetweenPlatforms)
              {
+
                  newObjectX+= direction * minHorizontalDistanceBetweenPlatforms;
+
              }
         }
         else
@@ -134,7 +136,10 @@ public class ProceduralManager : MonoBehaviour
              newObjectX = lastSpawnedObjectPosition.x + direction * Random.Range(minHorizontalDistanceBetweenPlatforms, currentRadius);
         }
 
-        float newObjectY= (float)(Math.Abs(Math.Sqrt(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2))) + lastSpawnedObjectPosition.y);
+
+
+
+        float newObjectY= (float)(Math.Abs(Math.Sqrt(Math.Abs(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2)))) + lastSpawnedObjectPosition.y);
         if (newObjectY < lastSpawnedObjectPosition.y)
         {
             Debug.Log("Whats up "+gameObject);

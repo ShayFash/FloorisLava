@@ -40,4 +40,7 @@ public abstract class SpawnableObject:MonoBehaviour,IProceduralSpawnable
      width = rectTransform.rect.width;
      height = rectTransform.rect.height;
     }
+
+ 
+    
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
+public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy,Saveable
 {
     public float health = 100f;
     public float movementSpeed = 5f;
@@ -100,6 +100,15 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
 
     public  void onPlayerEncountered()
     {
+
+    }
+
+     public   SaveableData saveObject(){
+        SaveableData enemyData = new EnemyData((int)health,this.transform.position.x,this.transform.position.y);
+        return enemyData;
+    }
+
+    public  void loadObject(SaveableData data){
 
     }
     

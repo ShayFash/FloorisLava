@@ -61,11 +61,11 @@
      <Compile Include="Assets\Scripts\Weapons\Projectile.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageTaker.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IEnemy.cs" />
-     <Compile Include="Assets\Scripts\SimplePlatform.cs" />
+     <Compile Include="Assets\Scripts\Spawnable\SimplePlatform.cs" />
      <Compile Include="Assets\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\SaveableData.cs" />
      <Compile Include="Assets\Scripts\Singleton Classes\SaveManagerAccess.cs" />
-     <Compile Include="Assets\Scripts\EnemyPlatform.cs" />
+     <Compile Include="Assets\Scripts\Spawnable\EnemyPlatform.cs" />
      <Compile Include="Assets\Scripts\Enums\Direction.cs" />
      <Compile Include="Assets\Scripts\Enemies\Skeletons\SkeletonArrow.cs" />
      <Compile Include="Assets\Scripts\AnimationBehaviours\CallFunctionOnExit.cs" />
@@ -88,7 +88,7 @@
      <Compile Include="Assets\Scripts\DataSaveFiles\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IAttacker.cs" />
      <Compile Include="Assets\Scripts\Singleton Classes\PlayerAccess.cs" />
-     <Compile Include="Assets\Scripts\Abstract Classes\SpawnableObject.cs" />
+     <Compile Include="Assets\Scripts\Spawnable\SpawnableObject.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\PositionData.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IOnAnimatonFinished.cs" />
      <Compile Include="Assets\Scripts\HealthBar.cs" />
@@ -104,6 +104,8 @@
      <Compile Include="Assets\Scripts\Attack Colliders\BoxAttackCollider.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Platform.cs" />
+     <Compile Include="Assets\Scripts\DataSaveFiles\EnemyData.cs" />
+     <Compile Include="Assets\Scripts\DataSaveFiles\EnemyPlatformData.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

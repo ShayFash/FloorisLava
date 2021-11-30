@@ -31,6 +31,8 @@ public class ProceduralManager : MonoBehaviour
     private int counter;
     private float rightBoundX, leftBoundX;
 
+    public GameObject spawnedParent;
+
     public float minHorizontalDistanceBetweenPlatforms = 6f;
     // Start is called before the first frame update
     void Start()
@@ -106,7 +108,9 @@ public class ProceduralManager : MonoBehaviour
                     break;
                     // Debug.Log("New Object X: "+newObjectTransform.x+" EndX: "+newObject.EndX+" BoundX: "+rightBoundX);
                 }
-
+                
+                SaveManagerAccess.getInstance().addSaveableObject(newObject.gameObject.GetComponent<Saveable>());
+                newObject.transform.SetParent(spawnedParent.transform);
                 spawnedObjects.Add(newObject);
                 changeDirection *= -1;
                 counter++;

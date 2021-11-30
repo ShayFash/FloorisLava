@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class ProceduralManager : MonoBehaviour
+public class ProceduralManager : MonoBehaviour,Saveable
 {
 
     public List<SpawnableObject> spawnedObjects;
@@ -150,4 +150,29 @@ public class ProceduralManager : MonoBehaviour
         }
         return new Vector3(newObjectX,newObjectY,0);
     }
+
+    public SaveableData saveObject(){
+        List<SaveableData> dataToSave=new List<SaveableData>();
+        List<SaveableKey> keysToSave=new List<SaveableKey>();
+        foreach(Transform spawnedObject in spawnedParent.transform){
+            EnemyPlatform enemyPlatform= spawnedObject.GetComponent<EnemyPlatform>();
+            if(enemyPlatform!=null){
+                keysToSave.Add(SaveableKey.ENEMY_PLATFORM);
+                dataToSave.Add(enemyPlatform.saveObject());
+            }else{
+            SimplePlatform simplePlatform= spawnedObject.GetComponent<SimplePlatform>();
+                if(simplePlatform!=null){
+
+                keysToSave.Add(SaveableKey.SIMPLE_PLATFORM);
+                dataToSave.Add(simplePlatform.saveObject());
+
+                }
+            }
+        }
+    }
+
+    public void loadObject(SaveableData data){
+        
+    }
+
 }

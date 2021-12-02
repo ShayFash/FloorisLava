@@ -38,7 +38,6 @@ using UnityEngine;
         }
 
         public void Update(){
-            Debug.Log("fsafdsa");
             if(Input.GetKeyDown(KeyCode.S)){
                 save();
             }

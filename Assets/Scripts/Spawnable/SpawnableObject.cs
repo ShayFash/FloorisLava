@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public abstract class SpawnableObject:MonoBehaviour,IProceduralSpawnable
+public abstract class SpawnableObject:MonoBehaviour,IProceduralSpawnable,Saveable
 {
     private float width;
     public float Width
@@ -41,6 +41,8 @@ public abstract class SpawnableObject:MonoBehaviour,IProceduralSpawnable
      height = rectTransform.rect.height;
     }
 
- 
+    public abstract SaveableData saveObject();
+
+    public abstract void loadObject(SaveableData data);
     
 }

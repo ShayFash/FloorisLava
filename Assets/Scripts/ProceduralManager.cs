@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class ProceduralManager : MonoBehaviour
+public class ProceduralManager : MonoBehaviour,Saveable
 {
 
     public List<SpawnableObject> spawnedObjects;
@@ -30,6 +30,8 @@ public class ProceduralManager : MonoBehaviour
     public Transform RightBound, LeftBound;
     private int counter;
     private float rightBoundX, leftBoundX;
+
+    public GameObject spawnedParent;
 
     public float minHorizontalDistanceBetweenPlatforms = 6f;
     // Start is called before the first frame update
@@ -106,7 +108,9 @@ public class ProceduralManager : MonoBehaviour
                     break;
                     // Debug.Log("New Object X: "+newObjectTransform.x+" EndX: "+newObject.EndX+" BoundX: "+rightBoundX);
                 }
-
+                
+                SaveManagerAccess.getInstance().addSaveableObject(newObject.gameObject.GetComponent<Saveable>());
+                newObject.transform.SetParent(spawnedParent.transform);
                 spawnedObjects.Add(newObject);
                 changeDirection *= -1;
                 counter++;
@@ -146,4 +150,31 @@ public class ProceduralManager : MonoBehaviour
         }
         return new Vector3(newObjectX,newObjectY,0);
     }
+
+    public SaveableData saveObject(){
+        List<SaveableData> dataToSave=new List<SaveableData>();
+        List<SaveableKey> keysToSave=new List<SaveableKey>();
+        foreach(Transform spawnedObject in spawnedParent.transform){
+            EnemyPlatform enemyPlatform= spawnedObject.GetComponent<EnemyPlatform>();
+            if(enemyPlatform!=null){
+                keysToSave.Add(SaveableKey.ENEMY_PLATFORM);
+                dataToSave.Add(enemyPlatform.saveObject());
+            }else{
+            SimplePlatform simplePlatform= spawnedObject.GetComponent<SimplePlatform>();
+                if(simplePlatform!=null){
+
+                keysToSave.Add(SaveableKey.SIMPLE_PLATFORM);
+                dataToSave.Add(simplePlatform.saveObject());
+
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public void loadObject(SaveableData data){
+        
+    }
+
 }

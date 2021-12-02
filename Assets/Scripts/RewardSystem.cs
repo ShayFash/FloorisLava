@@ -21,9 +21,10 @@ public class RewardSystem : MonoBehaviour
         set
         {
             score = value;
-            scoreBar.CurrentScore = score;
+            PlayerAccess.getStats().CurrentScore=score;
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {

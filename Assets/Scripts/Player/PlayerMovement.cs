@@ -131,10 +131,11 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
 
     private bool isGrounded()
     {
+        
         Collider2D touchingGround=Physics2D.OverlapCircle(feet.position, 1f,groundLayers);
         
-
         return touchingGround; //implicit conversion , if null return false else true
+    
     }
 
     public void setRageMode(){

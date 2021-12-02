@@ -25,4 +25,5 @@ public class DestroyEverything : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    
 }

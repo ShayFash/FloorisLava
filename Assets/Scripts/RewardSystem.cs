@@ -6,6 +6,7 @@ public class RewardSystem : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject Coin;
 
     private float playerHeight;
     private int totalKills;

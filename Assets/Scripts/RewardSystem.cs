@@ -6,7 +6,12 @@ public class RewardSystem : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject Coin;
 
+    public static int HEALTH_POTION_COINS = 300;
+    public static int RAGE_MODE_COINS = 600;
+
+    
     private float playerHeight;
     private int totalKills;
     private int totalPlayerKills=0;

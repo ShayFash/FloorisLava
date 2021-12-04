@@ -26,6 +26,7 @@ public class ProceduralManager : MonoBehaviour,Saveable
     public float minReachRadius;
     public float maxReachRadius;
 
+    private int lastEnemySpawned=2, lastItemSpawned=0;
     public float playerMaxX;
     public Transform RightBound, LeftBound;
     private int counter;
@@ -46,11 +47,16 @@ public class ProceduralManager : MonoBehaviour,Saveable
     private SpawnableObject getRandomSpawnableObject()
     {
         SpawnableObject objectToSpawn;
-        if (spawnedObjects.Count % (int) Random.Range(1, 10) == 0)
+
+        if (spawnedObjects.Count - lastEnemySpawned > Random.Range(4, 6))
         {
+            lastEnemySpawned = spawnedObjects.Count;
             objectToSpawn = (enemyPlatforms[(int) Random.Range(0, enemyPlatforms.Count)]);
-        }else if (spawnedObjects.Count % ((int) Random.Range(1, 6)) == 0)
+
+        }
+       else if (spawnedObjects.Count - lastItemSpawned > Random.Range(4, 6))
         {
+            lastItemSpawned = spawnedObjects.Count;
             objectToSpawn = itemPlatforms[(int) Random.Range(0, itemPlatforms.Count)];
         }
         else
@@ -104,7 +110,9 @@ public class ProceduralManager : MonoBehaviour,Saveable
                     Destroy(newObject.gameObject);
                     newObject = Instantiate(objectToSpawn,
                         getNewSpawnPosition(lastSpawnedObjectPosition, randomDirection *changeDirection* -1,numToSpawn,counter), Quaternion.identity);
+                    newObject.transform.SetParent(spawnedParent.transform);
                     spawnedObjects.Add(newObject);
+                    SaveManagerAccess.getInstance().addSaveableObject(newObject.gameObject.GetComponent<Saveable>());
                     break;
                     // Debug.Log("New Object X: "+newObjectTransform.x+" EndX: "+newObject.EndX+" BoundX: "+rightBoundX);
                 }
@@ -131,8 +139,7 @@ public class ProceduralManager : MonoBehaviour,Saveable
              if (newObjectX - lastSpawnedObjectPosition.x < minHorizontalDistanceBetweenPlatforms)
              {
 
-                 newObjectX+= direction * minHorizontalDistanceBetweenPlatforms;
-
+                 newObjectX = lastSpawnedObjectPosition.x + direction * Random.Range(minHorizontalDistanceBetweenPlatforms, currentRadius);
              }
         }
         else
@@ -143,7 +150,7 @@ public class ProceduralManager : MonoBehaviour,Saveable
 
 
 
-        float newObjectY= (float)(Math.Abs(Math.Sqrt(Math.Abs(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2)))) + lastSpawnedObjectPosition.y);
+        float newObjectY= (float)(Math.Abs(Math.Sqrt(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2))) + lastSpawnedObjectPosition.y);
         if (newObjectY < lastSpawnedObjectPosition.y)
         {
             Debug.Log("Whats up "+gameObject);

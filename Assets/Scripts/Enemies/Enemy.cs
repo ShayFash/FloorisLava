@@ -85,7 +85,8 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy,Save
     IEnumerator Die()
     {
         dead = true;
-
+        Instantiate(RewwardSystemAccess.getInstance().Coin, transform.position,Quaternion.identity);
+        
         RewwardSystemAccess.getInstance().increaseKill();
         
         animator.SetBool("dead", true);

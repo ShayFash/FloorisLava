@@ -185,16 +185,16 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     }
 
     public void useHealthPotion(){
-        if(HealthPotions>0){
-            HealthPotions--;
+        if(CurrentMoney>RewardSystem.HEALTH_POTION_COINS){
             CurrentHealth += HealthPotion.PotionPower;
+            CurrentMoney -= RewardSystem.HEALTH_POTION_COINS;
         }
     }
     
     public void useRageMode(){
-        if(RageModes>0&&!IsRaging)
+        if(CurrentMoney>RewardSystem.RAGE_MODE_COINS&&!IsRaging)
         {
-            RageModes--;
+            CurrentMoney -= RewardSystem.RAGE_MODE_COINS;
             IsRaging = true;
         }
     }

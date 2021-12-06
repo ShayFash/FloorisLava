@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class ProceduralManager : MonoBehaviour
+public class ProceduralManager : MonoBehaviour,Saveable
 {
 
     public List<SpawnableObject> spawnedObjects;
@@ -26,10 +26,13 @@ public class ProceduralManager : MonoBehaviour
     public float minReachRadius;
     public float maxReachRadius;
 
+    private int lastEnemySpawned=2, lastItemSpawned=0;
     public float playerMaxX;
     public Transform RightBound, LeftBound;
     private int counter;
     private float rightBoundX, leftBoundX;
+
+    public GameObject spawnedParent;
 
     public float minHorizontalDistanceBetweenPlatforms = 6f;
     // Start is called before the first frame update
@@ -44,12 +47,17 @@ public class ProceduralManager : MonoBehaviour
     private SpawnableObject getRandomSpawnableObject()
     {
         SpawnableObject objectToSpawn;
-        if (spawnedObjects.Count % (int) Random.Range(2, 5) == 0)
+
+        if (spawnedObjects.Count - lastEnemySpawned > Random.Range(4, 6))
         {
+            lastEnemySpawned = spawnedObjects.Count;
             objectToSpawn = (enemyPlatforms[(int) Random.Range(0, enemyPlatforms.Count)]);
-        }else if (spawnedObjects.Count % ((int) Random.Range(2, 5)) == 0)
+
+        }
+       else if (spawnedObjects.Count - lastItemSpawned > Random.Range(4, 6))
         {
-            objectToSpawn = itemPlatforms[(int) Random.Range(0, enemyPlatforms.Count)];
+            lastItemSpawned = spawnedObjects.Count;
+            objectToSpawn = itemPlatforms[(int) Random.Range(0, itemPlatforms.Count)];
         }
         else
         {
@@ -102,11 +110,15 @@ public class ProceduralManager : MonoBehaviour
                     Destroy(newObject.gameObject);
                     newObject = Instantiate(objectToSpawn,
                         getNewSpawnPosition(lastSpawnedObjectPosition, randomDirection *changeDirection* -1,numToSpawn,counter), Quaternion.identity);
+                    newObject.transform.SetParent(spawnedParent.transform);
                     spawnedObjects.Add(newObject);
+                    SaveManagerAccess.getInstance().addSaveableObject(newObject.gameObject.GetComponent<Saveable>());
                     break;
                     // Debug.Log("New Object X: "+newObjectTransform.x+" EndX: "+newObject.EndX+" BoundX: "+rightBoundX);
                 }
-
+                
+                SaveManagerAccess.getInstance().addSaveableObject(newObject.gameObject.GetComponent<Saveable>());
+                newObject.transform.SetParent(spawnedParent.transform);
                 spawnedObjects.Add(newObject);
                 changeDirection *= -1;
                 counter++;
@@ -123,16 +135,20 @@ public class ProceduralManager : MonoBehaviour
         if (numToSpawn == 2 && counter == 1)
         {
             SpawnableObject lastSpawnedObject = spawnedObjects[spawnedObjects.Count - 1];
-             newObjectX = lastSpawnedObject.transform.position.x+ direction*maxReachRadius;
+             newObjectX = lastSpawnedObject.transform.position.x+ direction*currentRadius;
              if (newObjectX - lastSpawnedObjectPosition.x < minHorizontalDistanceBetweenPlatforms)
              {
-                 newObjectX+= direction * minHorizontalDistanceBetweenPlatforms;
+
+                 newObjectX = lastSpawnedObjectPosition.x + direction * Random.Range(minHorizontalDistanceBetweenPlatforms, currentRadius);
              }
         }
         else
         {
              newObjectX = lastSpawnedObjectPosition.x + direction * Random.Range(minHorizontalDistanceBetweenPlatforms, currentRadius);
         }
+
+
+
 
         float newObjectY= (float)(Math.Abs(Math.Sqrt(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2))) + lastSpawnedObjectPosition.y);
         if (newObjectY < lastSpawnedObjectPosition.y)
@@ -141,4 +157,31 @@ public class ProceduralManager : MonoBehaviour
         }
         return new Vector3(newObjectX,newObjectY,0);
     }
+
+    public SaveableData saveObject(){
+        List<SaveableData> dataToSave=new List<SaveableData>();
+        List<SaveableKey> keysToSave=new List<SaveableKey>();
+        foreach(Transform spawnedObject in spawnedParent.transform){
+            EnemyPlatform enemyPlatform= spawnedObject.GetComponent<EnemyPlatform>();
+            if(enemyPlatform!=null){
+                keysToSave.Add(SaveableKey.ENEMY_PLATFORM);
+                dataToSave.Add(enemyPlatform.saveObject());
+            }else{
+            SimplePlatform simplePlatform= spawnedObject.GetComponent<SimplePlatform>();
+                if(simplePlatform!=null){
+
+                keysToSave.Add(SaveableKey.SIMPLE_PLATFORM);
+                dataToSave.Add(simplePlatform.saveObject());
+
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public void loadObject(SaveableData data){
+        
+    }
+
 }

@@ -138,6 +138,7 @@ public class Projectile : ShootingPower
 
 
             xVelocity = distX * speed / time;
+            if(xVelocity!=float.NaN)
             rb.velocity = new Vector2(xVelocity, yVelocity);
 
         }

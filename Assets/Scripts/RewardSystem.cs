@@ -6,13 +6,18 @@ public class RewardSystem : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject Coin;
 
+    public static int HEALTH_POTION_COINS = 300;
+    public static int RAGE_MODE_COINS = 600;
+
+    
     private float playerHeight;
     private int totalKills;
     private int totalPlayerKills=0;
     public int killsForHealthPotion=10;
     public int killsForRageMode=20;
-
+    public ScoreBar scoreBar;
     private int score;
 
     public int Score
@@ -21,14 +26,17 @@ public class RewardSystem : MonoBehaviour
         set
         {
             score = value;
+            PlayerAccess.getStats().CurrentScore=score;
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
         totalKills = 0;
         score = 0;
         playerHeight = 0;
+        Score = 0;
     }
 
     // Update is called once per frame
@@ -40,20 +48,24 @@ public class RewardSystem : MonoBehaviour
 
     private void calculateScore()
     {
-        Score = (int)(playerHeight * 100) + totalKills * 200;
+        int updatedScore = (int)(playerHeight * 10) + totalPlayerKills * 100;
+        if (updatedScore > Score)
+        {
+            Score = updatedScore;
+        }
     }
 
     public void increaseKill()
     {
         this.totalPlayerKills++;
-        if (totalPlayerKills % 2 == 0)
+        if (totalPlayerKills % 3 == 0)
         {
             PlayerAccess.getStats().addRageMode();
         }
 
-        if (totalPlayerKills % 1 == 0)
+        if (totalPlayerKills % 2 == 0)
         {
-            PlayerAccess.getStats().addHealthPotions();
+            PlayerAccess.getStats().addHealthPotion();
 
         }
     }

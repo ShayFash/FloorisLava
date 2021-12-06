@@ -8,6 +8,8 @@ public class Shoot : MonoBehaviour,IPlayerAttack
     public GameObject bullet;
     public float secondPerBullet = 0.55f;
     private Animator animator;
+    private int multiplier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +20,14 @@ public class Shoot : MonoBehaviour,IPlayerAttack
     // Update is called once per frame
     void Update()
     {
+        multiplier = PlayerAccess.getStats().IsRaging ? 3 : 1;
+
         if (!Helper.MOBILE_TESTING&&PlayerAttack.canAttack())
         {
             if (Input.GetKeyDown("m"))
             {
                     StartCoroutine(attack());
             }
-
         }
     }
 
@@ -51,7 +54,6 @@ public class Shoot : MonoBehaviour,IPlayerAttack
             {
                 case PlayerActionType.FIREBALL:
                     StartCoroutine(attack());
-
                     break;
             }
         }

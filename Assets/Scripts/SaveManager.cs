@@ -10,6 +10,7 @@ using UnityEngine;
 
         [System.NonSerialized]public List<Saveable> saveableObjects;
         
+        private List<Saveable> lastSavedObjects;
         
         
         
@@ -17,10 +18,10 @@ using UnityEngine;
         private void Awake()
         {
             saveableObjects=new List<Saveable>();
+            lastSavedObjects=new List<Saveable>();
     
             foreach (var objectToSave in objectsToSave)
             {
-           
                 Saveable saveableObject = objectToSave.gameObject.GetComponent<Saveable>();
                 if (saveableObject!= null)
                 {
@@ -34,6 +35,15 @@ using UnityEngine;
         public void addSaveableObject(Saveable objToSave)
         {
             saveableObjects.Add(objToSave);
+        }
+
+        public void Update(){
+            if(Input.GetKeyDown(KeyCode.S)){
+                save();
+            }
+             if(Input.GetKeyDown(KeyCode.L)){
+                load();
+            }
         }
 
         /**&
@@ -54,17 +64,18 @@ using UnityEngine;
 
         public void save()
         {
-            Debug.Log("Saving...");
-            try
+            lastSavedObjects.Clear();
+             foreach (var objectToSave in saveableObjects)
             {
+                lastSavedObjects.Add(objectToSave);
+
+            }
+            Debug.Log("Saving...");
+         
                 SaveSystem.saveData(saveableObjects);
                 Debug.Log("Saved");
-            }
-            catch (Exception e)
-            {
-                Debug.LogError(e);
-            }
             
+           
         }
 
         public void load()
@@ -72,7 +83,7 @@ using UnityEngine;
             try
             {
             Debug.Log("Loading...");
-            SaveSystem.loadData(saveableObjects);
+            SaveSystem.loadData(lastSavedObjects);
             Debug.Log("Loading Completed");
 
             }

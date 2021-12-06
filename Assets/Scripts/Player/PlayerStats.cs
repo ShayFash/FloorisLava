@@ -17,10 +17,41 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     private int healthPotions;
     private int rageModes;
-    public float RagingTime=5f;
-
+    public float RagingTime=7f;
+    public int defense;
     public PowerUpCanvas powerUpCanvas;
 
+    public ScoreBar scoreBar;
+
+    private int currentScore;
+
+
+
+    public int HealthPotions
+    {
+        get { return healthPotions; }
+        set
+        {
+            if (value >= 0)
+            {
+                healthPotions = value;
+                powerUpCanvas.NumHealthPotions = value;
+            }
+        }
+    }
+    
+    public int RageModes
+    {
+        get { return rageModes; }
+        set
+        {
+            if (rageModes >= 0)
+            {
+                rageModes = value;
+                powerUpCanvas.NumRageModes = value;
+            }
+        }
+    }
     
 
     public bool IsRaging{
@@ -57,9 +88,18 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
             if (value < currentHealth)
             {
                 PlayerAccess.getInstance().GetComponent<Animator>().SetTrigger("hurt");
-            }else
-            currentHealth = value;
+            }
+            currentHealth = value>0?value:0;
             healthBar.setHealth(currentHealth);
+        }
+    }
+
+    public int CurrentScore{
+        get{return currentScore;}
+        set{
+            currentScore=value;
+            scoreBar.CurrentScore = currentScore;
+
         }
     }
 
@@ -110,7 +150,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     public SaveableData saveObject()
     {
-        SaveableData data = new PlayerData(CurrentHealth,CurrentMoney, transform.position.x,transform.position.y,PlayerAccess.getMovement().LookingRight);
+        SaveableData data = new PlayerData(CurrentHealth,CurrentMoney,CurrentScore, transform.position.x,transform.position.y,PlayerAccess.getMovement().LookingRight);
         return data;
     }
 
@@ -123,6 +163,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
             {
                 CurrentHealth = playerData.health;
                 CurrentMoney = playerData.money;
+                CurrentScore = playerData.score;
                 transform.position = playerData.posData.getVector3();
                 PlayerAccess.getMovement().LookingRight = playerData.isLookingRight;
             }
@@ -135,33 +176,32 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     public void takeDamage(int damage)
     {
-        CurrentHealth -= damage;
+        CurrentHealth -= damage/defense;
     }
 
-    public void addHealthPotions(){
-        healthPotions++;
-        powerUpCanvas.NumHealthPotions=healthPotions;
-
+    public void addHealthPotion()
+    {
+        HealthPotions++;
     }
 
     public void useHealthPotion(){
-        if(healthPotions>0){
-            healthPotions--;
-            
+        if(CurrentMoney>RewardSystem.HEALTH_POTION_COINS){
+            CurrentHealth += HealthPotion.PotionPower;
+            CurrentMoney -= RewardSystem.HEALTH_POTION_COINS;
         }
     }
     
     public void useRageMode(){
-        if(rageModes>0&&!IsRaging){
-            rageModes--;
+        if(CurrentMoney>RewardSystem.RAGE_MODE_COINS&&!IsRaging)
+        {
+            CurrentMoney -= RewardSystem.RAGE_MODE_COINS;
             IsRaging = true;
         }
     }
 
-    public void addRageMode(){
-        rageModes++;
-        powerUpCanvas.NumRageModes=rageModes;
-
+    public void addRageMode()
+    {
+        RageModes++;
     }
     
 }

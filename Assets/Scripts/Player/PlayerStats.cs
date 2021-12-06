@@ -20,9 +20,9 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     public float RagingTime=7f;
     public int defense;
     public PowerUpCanvas powerUpCanvas;
-
+    public GameObject blood;
     public ScoreBar scoreBar;
-
+    public Transform bloodPoint;
     private int currentScore;
 
 
@@ -87,6 +87,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         {
             if (value < currentHealth)
             {
+                Instantiate(blood, bloodPoint.position, Quaternion.identity);
                 PlayerAccess.getInstance().GetComponent<Animator>().SetTrigger("hurt");
             }
             currentHealth = value>0?value:0;

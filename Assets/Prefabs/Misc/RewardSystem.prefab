@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  Coin: {fileID: 45615054092848911, guid: 2568c22b191dd4124b81eaa9d3ea3c28, type: 3}
   killsForHealthPotion: 10
   killsForRageMode: 20
+  scoreBar: {fileID: 0}

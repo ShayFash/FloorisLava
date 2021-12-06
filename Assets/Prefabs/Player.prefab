@@ -316,7 +316,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   coinBar: {fileID: 0}
   RagingTime: 5
+  defense: 5
   powerUpCanvas: {fileID: 0}
+  scoreBar: {fileID: 0}
 --- !u!114 &983143507005967362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,9 +414,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: 0}
+  m_Offset: {x: 0.04, y: -0.06}
   serializedVersion: 2
-  m_Radius: 0.61
+  m_Radius: 0.82
 --- !u!114 &983143508119581278
 MonoBehaviour:
   m_ObjectHideFlags: 0

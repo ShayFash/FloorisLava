@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
+public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy,Saveable
 {
     public float health = 100f;
     public float movementSpeed = 5f;
@@ -25,10 +25,7 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
     protected Animator animator;
     protected Rigidbody2D enemy;
     protected Rigidbody2D player;
-
-
     private bool dead = false;
-
     protected bool isAttacking = false;
 
     public void Start()
@@ -67,7 +64,6 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
         if (!isAttacking && !isDead())
         {
             isAttacking = true;
-        
             StartCoroutine(attackHelper( attackType));
         }
         else
@@ -89,7 +85,8 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
     IEnumerator Die()
     {
         dead = true;
-
+        Instantiate(RewwardSystemAccess.getInstance().Coin, transform.position,Quaternion.identity);
+        
         RewwardSystemAccess.getInstance().increaseKill();
         
         animator.SetBool("dead", true);
@@ -98,14 +95,21 @@ public abstract class Enemy : MonoBehaviour, IDamageTaker, IAttacker,IEnemy
         gameObject.SetActive(false);
         yield return new WaitForSeconds(1.4f);
         Destroy(gameObject);
-
-
-
+        
 
     }
 
     public  void onPlayerEncountered()
     {
+
+    }
+
+     public   SaveableData saveObject(){
+        SaveableData enemyData = new EnemyData((int)health,this.transform.position.x,this.transform.position.y);
+        return enemyData;
+    }
+
+    public  void loadObject(SaveableData data){
 
     }
     

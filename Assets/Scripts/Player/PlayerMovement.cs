@@ -44,10 +44,8 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
     }
 
     private void checkRageMode(){
-        if(Input.GetKeyDown(KeyCode.LeftShift))shiftKeyPressed=true;
-        else if(Input.GetKeyUp(KeyCode.LeftShift))shiftKeyPressed=false;
-        
-        if(shiftKeyPressed&&playerStats.IsRaging){
+  
+        if(playerStats.IsRaging){
             movementMultiplier=1.5f;
             jumpMultiplier=1.3f;
         }else{
@@ -133,10 +131,11 @@ public class PlayerMovement : MonoBehaviour,IOnAnimatonFinished
 
     private bool isGrounded()
     {
+        
         Collider2D touchingGround=Physics2D.OverlapCircle(feet.position, 1f,groundLayers);
         
-
         return touchingGround; //implicit conversion , if null return false else true
+    
     }
 
     public void setRageMode(){

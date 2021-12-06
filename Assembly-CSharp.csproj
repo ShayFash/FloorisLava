@@ -61,11 +61,13 @@
      <Compile Include="Assets\Scripts\GameButton.cs" />
      <Compile Include="Assets\Scripts\Attack Colliders\TriangleAttackCollider.cs" />
      <Compile Include="Assets\Scripts\SawTrap.cs" />
+     <Compile Include="Assets\Platform.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\AllData.cs" />
      <Compile Include="Assets\Scripts\Player\Shoot.cs" />
      <Compile Include="Assets\Scripts\MoveUp.cs" />
      <Compile Include="Assets\Scripts\DestroyableObject.cs" />
      <Compile Include="Assets\Scripts\Enemies\ColliderType.cs" />
+     <Compile Include="Assets\Scripts\DataSaveFiles\EnemyData.cs" />
      <Compile Include="Assets\Scripts\HealthPotion.cs" />
      <Compile Include="Assets\Scripts\CoinBar.cs" />
      <Compile Include="Assets\Scripts\AnimationBehaviours\DestroyOnExit.cs" />
@@ -75,6 +77,7 @@
      <Compile Include="Assets\Scripts\Base\Attack.cs" />
      <Compile Include="Assets\Scripts\Base\Helper.cs" />
      <Compile Include="Assets\Scripts\Weapons\Projectile.cs" />
+     <Compile Include="Assets\Scripts\Enums\SaveableKeys.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageTaker.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IEnemy.cs" />
      <Compile Include="Assets\Scripts\SimplePlatform.cs" />
@@ -99,10 +102,11 @@
      <Compile Include="Assets\Scripts\Weapons\Bullet.cs" />
      <Compile Include="Assets\Scripts\Attack Colliders\AttackCollider.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyMelee.cs" />
+     <Compile Include="Assets\Lava&amp;Water\Scripts\Lava_Ocean.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IAttacker.cs" />
      <Compile Include="Assets\Scripts\Singleton Classes\PlayerAccess.cs" />
-     <Compile Include="Assets\Scripts\Abstract Classes\SpawnableObject.cs" />
+     <Compile Include="Assets\Scripts\Spawnable\SpawnableObject.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\PositionData.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IOnAnimatonFinished.cs" />
      <Compile Include="Assets\Scripts\HealthBar.cs" />
@@ -110,9 +114,12 @@
      <Compile Include="Assets\PowerUpCanvas.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerActionType.cs" />
      <Compile Include="Assets\Scripts\Chest.cs" />
+     <Compile Include="Assets\Scripts\ScoreBar.cs" />
      <Compile Include="Assets\Scripts\Enemies\Skeletons\SkeletonSpear.cs" />
      <Compile Include="Assets\Scripts\ProceduralManager.cs" />
      <Compile Include="Assets\Scripts\Interfaces\Saveable.cs" />
+     <Compile Include="Assets\Scripts\DataSaveFiles\EnemyPlatformData.cs" />
+     <Compile Include="Assets\Scripts\Pausemenu.cs" />
      <Compile Include="Assets\Scripts\Attack Colliders\BoxAttackCollider.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\updateGraph.cs" />

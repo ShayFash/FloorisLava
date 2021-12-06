@@ -15,11 +15,15 @@ public class DestroyEverything : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         IDamageTaker damageTaker = collision.GetComponent<IDamageTaker>();
 
         if (damageTaker != null)
         {
             damageTaker.takeDamage(damage);
+        }else{
+            Destroy(collision.gameObject);
         }
     }
+    
 }

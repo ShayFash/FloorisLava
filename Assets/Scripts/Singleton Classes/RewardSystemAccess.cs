@@ -3,6 +3,7 @@ using UnityEngine;
 public static class RewwardSystemAccess
 {
     private static RewardSystem _rewardSystem;
+    
     public static RewardSystem getInstance()
     {
         if (_rewardSystem == null)

@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
+using UnityEngine.SceneManagement;
+public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker,IOnAnimatonFinished
 {
     public int maxHealth;
 
@@ -92,6 +92,10 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
                 PlayerAccess.getInstance().GetComponent<Animator>().SetTrigger("hurt");
             }
             currentHealth = value>0?value:0;
+            if (currentHealth == 0)
+            {
+                animator.SetTrigger("dead");
+            }
             healthBar.setHealth(currentHealth);
         }
     }
@@ -110,7 +114,12 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         get { return currentMoney; }
         set
         {
+            if(value>0)
             currentMoney = value;
+            else
+            {
+                currentMoney = 0;
+            }
             coinBar.setCoins(currentMoney);
         }
     }
@@ -219,5 +228,11 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
     {
         RageModes++;
     }
-    
+
+    public void execute(string animationName)
+    {
+        if(animationName=="dead")
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+    }
 }

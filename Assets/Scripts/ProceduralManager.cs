@@ -151,13 +151,14 @@ public class ProceduralManager : MonoBehaviour,Saveable
 
         float newObjectY= (float)(Math.Abs(Math.Sqrt(currentRadius*currentRadius - Math.Pow((newObjectX-lastSpawnedObjectPosition.x),2))) + lastSpawnedObjectPosition.y);
         if (newObjectY < lastSpawnedObjectPosition.y)
-        {
+        {  
             Debug.Log("Whats up "+gameObject);
         }
 
         if (Double.IsNaN(newObjectY))
         {
-            Debug.Log(currentRadius+" " +newObjectX+" "+lastSpawnedObject.transform.position.x+" "+lastSpawnedObjectPosition.x+" "+counter+" "+numToSpawn);
+            return new Vector3(-1000, 1000, 0);
+                Debug.Log(currentRadius+" " +newObjectX+" "+lastSpawnedObject.transform.position.x+" "+lastSpawnedObjectPosition.x+" "+counter+" "+numToSpawn);
         }
         return new Vector3(newObjectX,newObjectY,0);
     }

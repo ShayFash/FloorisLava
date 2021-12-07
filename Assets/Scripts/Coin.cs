@@ -17,7 +17,6 @@ public class Coin : PickupItem
     }
 
     // Update is called once per frame
-
     public override void interactSpecific()
     {
         PlayerAccess.getStats().CurrentMoney += money;

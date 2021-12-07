@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coin : PickupItem
 {
-    [Range(70,100)]
+    [Range(70,300)]
     [SerializeField] private int maxMoney;
 
     private int minMoney = 50;

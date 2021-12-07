@@ -40,18 +40,7 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         }
     }
 
-    public int SnowPotions
-    {
-        get { return snowPotions; }
-        set
-        {
-            if (value >= 0)
-            {
-                snowPotions = value;
-            }
-        }
-    }
-    
+ 
     public int RageModes
     {
         get { return rageModes; }
@@ -135,7 +124,6 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         CurrentHealth = maxHealth;
         multiplier=1;
         animator=GetComponent<Animator>();
-        SnowPotions=4;
         healthPotions=0;
         rageModes=0;
         isRaging = false;
@@ -163,7 +151,6 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
         if (Input.GetKeyDown(KeyCode.G))
         {
             useSnowPotion();
-            
         }
     }
 
@@ -220,11 +207,12 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker
 
     public void useSnowPotion()
     {
-        if (SnowPotions > 0)
+        if(CurrentMoney>RewardSystem.SNOW_POTION_COINS)
         {
+            CurrentMoney -= RewardSystem.SNOW_POTION_COINS;
             LavaAccess.getInstance().Freeze();
-            SnowPotions--;
         }
+        
     }
 
     public void addRageMode()

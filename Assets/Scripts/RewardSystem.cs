@@ -9,6 +9,8 @@ public class RewardSystem : MonoBehaviour
     public GameObject Coin;
 
     public static int HEALTH_POTION_COINS = 300;
+    public static int SNOW_POTION_COINS = 400;
+
     public static int RAGE_MODE_COINS = 600;
 
     

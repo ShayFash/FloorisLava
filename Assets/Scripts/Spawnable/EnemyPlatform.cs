@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class EnemyPlatform : SpawnableObject
 {
-     private Enemy enemy;
+     public Enemy enemy;
     // Start is called before the first frame update
     void Start()
     {
-       enemy=GetComponentInChildren<Enemy>();
         
     }
 

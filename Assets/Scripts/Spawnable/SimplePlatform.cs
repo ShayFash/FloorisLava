@@ -16,12 +16,14 @@ public class SimplePlatform : SpawnableObject
         
     }
     public override  SaveableData saveObject(){
+        
         return new PositionData(transform.position.x,transform.position.y);
     }
 
     public override void loadObject(SaveableData data){
         PositionData positionData=data as PositionData;
-        transform.position=positionData.getVector3();
+        if(transform!=null)
+            transform.position=positionData.getVector3();
 
     }
 

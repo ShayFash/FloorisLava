@@ -32,7 +32,7 @@ public class ProceduralManager : MonoBehaviour,Saveable
     private int counter;
     private float rightBoundX, leftBoundX;
 
-    public GameObject spawnedParent;
+    public GameObject spawnedParent,simpPlatform;
 
     public float minHorizontalDistanceBetweenPlatforms = 6f;
     // Start is called before the first frame update
@@ -132,9 +132,10 @@ public class ProceduralManager : MonoBehaviour,Saveable
         // float newObjectY = lastSpawnedObjectPosition.y + Random.Range(2, playerMaxY);
         float currentRadius = Random.Range(minReachRadius, maxReachRadius);
         float newObjectX = 0;
+        SpawnableObject lastSpawnedObject=null;
         if (numToSpawn == 2 && counter == 1)
         {
-            SpawnableObject lastSpawnedObject = spawnedObjects[spawnedObjects.Count - 1];
+             lastSpawnedObject = spawnedObjects[spawnedObjects.Count - 1];
              newObjectX = lastSpawnedObject.transform.position.x+ direction*currentRadius;
              if (newObjectX - lastSpawnedObjectPosition.x < minHorizontalDistanceBetweenPlatforms)
              {
@@ -155,13 +156,20 @@ public class ProceduralManager : MonoBehaviour,Saveable
         {
             Debug.Log("Whats up "+gameObject);
         }
+
+        if (Double.IsNaN(newObjectY))
+        {
+            Debug.Log(currentRadius+" " +newObjectX+" "+lastSpawnedObject.transform.position.x+" "+lastSpawnedObjectPosition.x+" "+counter+" "+numToSpawn);
+        }
         return new Vector3(newObjectX,newObjectY,0);
     }
 
     public SaveableData saveObject(){
         List<SaveableData> dataToSave=new List<SaveableData>();
         List<SaveableKey> keysToSave=new List<SaveableKey>();
-        foreach(Transform spawnedObject in spawnedParent.transform){
+        for (int i = 0; i < spawnedObjects.Count; i++)
+        {
+            Transform spawnedObject = spawnedObjects[i].transform;
             EnemyPlatform enemyPlatform= spawnedObject.GetComponent<EnemyPlatform>();
             if(enemyPlatform!=null){
                 keysToSave.Add(SaveableKey.ENEMY_PLATFORM);
@@ -177,11 +185,46 @@ public class ProceduralManager : MonoBehaviour,Saveable
             }
         }
 
-        return null;
+        SaveableData[] dataToSaveArray = dataToSave.ToArray();
+        SaveableKey[] keysToSaveArray = keysToSave.ToArray();
+        
+
+        return new ProceduralData(dataToSaveArray,keysToSaveArray);
     }
 
-    public void loadObject(SaveableData data){
+    public void loadObject(SaveableData saveableData){
+        ProceduralData proceduralData=saveableData as ProceduralData;
+        SaveableKey[] keysToLoad = proceduralData.saveableKeys;
+        SaveableData[] dataToLoad = proceduralData.saveableData;
+        List<SpawnableObject> newSpawnableObjects=new List<SpawnableObject>();
+        for (int i = 0; i < keysToLoad.Length; i++)
+        {
+            SpawnableObject spawnedObject;
+            if (keysToLoad[i] == SaveableKey.SIMPLE_PLATFORM)
+            {
+                spawnedObject = Instantiate(simpPlatform).GetComponent<SpawnableObject>();
+            }
+            else    
+            {
+                spawnedObject = Instantiate(enemyPlatforms[0].gameObject).GetComponent<SpawnableObject>();
+            }
+            spawnedObject.loadObject(dataToLoad[i]);
+            spawnedObject.transform.SetParent(spawnedParent.transform);
+            newSpawnableObjects.Add(spawnedObject);
+        }
         
+        for (int i = 0; i < spawnedObjects.Count; i++)
+        {
+           // Destroy(spawnedObjects[i].gameObject);
+        }
+        spawnedObjects.Clear();
+
+        for (int i = 0; i < newSpawnableObjects.Count; i++)
+        {
+            spawnedObjects.Add(newSpawnableObjects[i]);
+        }
+       
+
     }
 
 }

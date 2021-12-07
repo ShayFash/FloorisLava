@@ -7,6 +7,5 @@
         public AllData(int length)
         {
             SaveableDatas = new SaveableData[length];
-            
         }
     }

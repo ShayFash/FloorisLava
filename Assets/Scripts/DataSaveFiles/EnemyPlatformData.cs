@@ -11,7 +11,7 @@ public class EnemyPlatformData:SaveableData
     public EnemyPlatformData(EnemyData enemyData,float x, float y)
     {
         this.enemyData=enemyData;
-       
+      
         posData = new PositionData(x, y);
     }
 }

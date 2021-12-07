@@ -399,6 +399,11 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 1200416803963982635, guid: 91f30d04cd5434318bd6d86688401f5f, type: 3}
   m_PrefabInstance: {fileID: 1200416804573382330}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1606173676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 786335303791620731, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
+  m_PrefabInstance: {fileID: 786335302525917918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1666732277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -625,6 +630,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 251115306690875607, guid: 3e817e22047154741ab9e9d7642e6bc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994771424282935799, guid: 3e817e22047154741ab9e9d7642e6bc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8127588444500632972, guid: 3e817e22047154741ab9e9d7642e6bc4, type: 3}
       propertyPath: m_Name
       value: CanvasGamePlay
@@ -844,21 +857,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 786335302679167879, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 786335303392777589, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.38
+      objectReference: {fileID: 0}
     - target: {fileID: 786335303791620728, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 786335303791620728, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.137314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 786335303791620728, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.237792
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 786335303791620728, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8278408
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 786335303791620728, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -888,6 +909,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 786335303791620729, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
+      propertyPath: simpPlatform
+      value: 
+      objectReference: {fileID: 1005820933856741159, guid: 8c9892c5b433043879ef8e0fc59ed39f, type: 3}
     - target: {fileID: 786335303791620729, guid: 5896db1173c98441296890ad637d2fe2, type: 3}
       propertyPath: spawnThreshold
       value: 
@@ -1239,7 +1264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
       propertyPath: objectsToSave.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
       propertyPath: objectsToSave.Array.data[0]
@@ -1248,7 +1273,7 @@ PrefabInstance:
     - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
       propertyPath: objectsToSave.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1606173676}
     - target: {fileID: 3720473809339663403, guid: 7f03c378dab8c4c169160d9c37c6b0a9, type: 3}
       propertyPath: objectsToSave.Array.data[2]
       value: 

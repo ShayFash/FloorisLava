@@ -62,12 +62,14 @@
      <Compile Include="Assets\Scripts\Attack Colliders\TriangleAttackCollider.cs" />
      <Compile Include="Assets\Scripts\SawTrap.cs" />
      <Compile Include="Assets\Platform.cs" />
+     <Compile Include="Assets\AIEnemyGFX.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\AllData.cs" />
      <Compile Include="Assets\Scripts\Player\Shoot.cs" />
      <Compile Include="Assets\Scripts\MoveUp.cs" />
      <Compile Include="Assets\Scripts\DestroyableObject.cs" />
      <Compile Include="Assets\Scripts\Enemies\ColliderType.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\EnemyData.cs" />
+     <Compile Include="Assets\updateGraph.cs" />
      <Compile Include="Assets\Scripts\HealthPotion.cs" />
      <Compile Include="Assets\Scripts\CoinBar.cs" />
      <Compile Include="Assets\Scripts\AnimationBehaviours\DestroyOnExit.cs" />
@@ -102,6 +104,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullet.cs" />
      <Compile Include="Assets\Scripts\Attack Colliders\AttackCollider.cs" />
+     <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyMelee.cs" />
      <Compile Include="Assets\Lava&amp;Water\Scripts\Lava_Ocean.cs" />
      <Compile Include="Assets\Scripts\DataSaveFiles\PlayerData.cs" />
@@ -124,9 +127,6 @@
      <Compile Include="Assets\Scripts\Pausemenu.cs" />
      <Compile Include="Assets\Scripts\Attack Colliders\BoxAttackCollider.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-     <Compile Include="Assets\updateGraph.cs" />
-     <Compile Include="Assets\AIEnemyGFX.cs" />
-     <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -822,17 +822,17 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{54d1ed79-a695-c968-1312-61aab2734a89}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{29c554ec-1ec0-71c3-11d6-60d4eb433882}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{f5392ca0-9ab6-3d86-489d-70f4c3f55322}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{29c554ec-1ec0-71c3-11d6-60d4eb433882}</Project>
-      <Name>PackageToolsEditor</Name>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{54d1ed79-a695-c968-1312-61aab2734a89}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

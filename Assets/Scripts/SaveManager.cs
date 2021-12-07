@@ -80,17 +80,12 @@ using UnityEngine;
 
         public void load()
         {
-            try
-            {
+          
             Debug.Log("Loading...");
             SaveSystem.loadData(lastSavedObjects);
             Debug.Log("Loading Completed");
 
-            }
-            catch (Exception e)
-            {
-                Debug.LogError(e);
-            }
+           
         }
 
     }

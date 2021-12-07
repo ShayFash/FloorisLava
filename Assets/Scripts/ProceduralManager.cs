@@ -112,12 +112,10 @@ public class ProceduralManager : MonoBehaviour,Saveable
                         getNewSpawnPosition(lastSpawnedObjectPosition, randomDirection *changeDirection* -1,numToSpawn,counter), Quaternion.identity);
                     newObject.transform.SetParent(spawnedParent.transform);
                     spawnedObjects.Add(newObject);
-                    SaveManagerAccess.getInstance().addSaveableObject(newObject.gameObject.GetComponent<Saveable>());
                     break;
                     // Debug.Log("New Object X: "+newObjectTransform.x+" EndX: "+newObject.EndX+" BoundX: "+rightBoundX);
                 }
                 
-                SaveManagerAccess.getInstance().addSaveableObject(newObject.gameObject.GetComponent<Saveable>());
                 newObject.transform.SetParent(spawnedParent.transform);
                 spawnedObjects.Add(newObject);
                 changeDirection *= -1;
@@ -212,10 +210,12 @@ public class ProceduralManager : MonoBehaviour,Saveable
             spawnedObject.transform.SetParent(spawnedParent.transform);
             newSpawnableObjects.Add(spawnedObject);
         }
+
+        Debug.Log(newSpawnableObjects.Count);
         
         for (int i = 0; i < spawnedObjects.Count; i++)
         {
-           // Destroy(spawnedObjects[i].gameObject);
+           Destroy(spawnedObjects[i].gameObject);
         }
         spawnedObjects.Clear();
 

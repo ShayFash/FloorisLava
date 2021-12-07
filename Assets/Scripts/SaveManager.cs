@@ -32,10 +32,7 @@ using UnityEngine;
             
         }
 
-        public void addSaveableObject(Saveable objToSave)
-        {
-            saveableObjects.Add(objToSave);
-        }
+       
 
         public void Update(){
             if(Input.GetKeyDown(KeyCode.S)){
@@ -82,7 +79,7 @@ using UnityEngine;
         {
           
             Debug.Log("Loading...");
-            SaveSystem.loadData(lastSavedObjects);
+            SaveSystem.loadData(saveableObjects);
             Debug.Log("Loading Completed");
 
            

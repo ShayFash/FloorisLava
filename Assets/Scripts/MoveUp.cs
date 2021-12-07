@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveUp : MonoBehaviour
 {
     public float speed = 5f;
+    public float currentSpeed;
     private Rigidbody2D rb;
     public bool toStop = false;
     private float startingPositionY;
@@ -13,7 +14,7 @@ public class MoveUp : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity= transform.up * speed;
+        start();
 
         if (toStop)
         {
@@ -29,13 +30,17 @@ public class MoveUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (toStop)
-        {
-            if (transform.position.y > startingPositionY + height)
-            {
-                Destroy(gameObject);
-            }
-        }
+        rb.velocity= transform.up * currentSpeed;
 
+    }
+
+    public void stop()
+    {
+        currentSpeed = 0;
+    }
+
+    public void start()
+    {
+        currentSpeed = speed;
     }
 }

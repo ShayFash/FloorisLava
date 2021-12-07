@@ -157,8 +157,9 @@ public class ProceduralManager : MonoBehaviour,Saveable
 
         if (Double.IsNaN(newObjectY))
         {
-            return new Vector3(-1000, 1000, 0);
-                Debug.Log(currentRadius+" " +newObjectX+" "+lastSpawnedObject.transform.position.x+" "+lastSpawnedObjectPosition.x+" "+counter+" "+numToSpawn);
+            return new Vector3(newObjectX,lastSpawnedObjectPosition.y+4,0);
+
+            Debug.Log(currentRadius+" " +newObjectX+" "+lastSpawnedObject.transform.position.x+" "+lastSpawnedObjectPosition.x+" "+counter+" "+numToSpawn);
         }
         return new Vector3(newObjectX,newObjectY,0);
     }

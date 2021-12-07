@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthPotion : PickupItem
 {
-    [SerializeField] public int potionPower;
+    [SerializeField] public int potionPower=30;
     // Start is called before the first frame update
 
     public static int PotionPower;

@@ -92,6 +92,10 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker,IOnAnimatonFinish
                 PlayerAccess.getInstance().GetComponent<Animator>().SetTrigger("hurt");
             }
             currentHealth = value>0?value:0;
+            if (value > 100)
+            {
+                currentHealth = 100;
+            }
             if (currentHealth == 0)
             {
                 animator.SetTrigger("dead");
@@ -201,7 +205,8 @@ public class PlayerStats : MonoBehaviour,Saveable,IDamageTaker,IOnAnimatonFinish
 
     public void useHealthPotion(){
         if(CurrentMoney>RewardSystem.HEALTH_POTION_COINS){
-            CurrentHealth += HealthPotion.PotionPower;
+            
+            CurrentHealth += 30;
             CurrentMoney -= RewardSystem.HEALTH_POTION_COINS;
         }
     }
